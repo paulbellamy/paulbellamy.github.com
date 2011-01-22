@@ -9,7 +9,7 @@
 
 /* Containers
 ----------------------------------------------------------------------------------------------------*/
-.container_12 {
+.container, .container_12 {
 	margin-left: auto;
 	margin-right: auto;
 	width: 960px;
