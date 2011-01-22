@@ -2,4 +2,4 @@
 layout: default
 title: paulbellamy.com
 ---
-<h1>Hello World!</h1>
+<h1 class="headline">Hello World!</h1>
