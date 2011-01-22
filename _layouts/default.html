@@ -1,14 +1,24 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <title>{{; page.title }}</title>
+    <title>{{ page.title }}</title>
     <link rel="stylesheet" href="/stylesheets/fonts.css" type="text/css" />
     <link rel="stylesheet" href="/stylesheets/grid.css" type="text/css" />
     <link rel="stylesheet" href="/stylesheets/default.css" type="text/css" />
   </head>
   <body>
-    <div class="container">  
-      {{content}}
+    <div class="container">
+      <div class="header">
+        <h1>{{ page.title }}</h1> 
+        <hr>
+      </div>
+      <div class="clear">&nbsp;</div>
+      <div class="navigation grid_5">  
+        &nbsp;
+      </div>
+      <div class="content grid_7">
+        {{ content }}
+      </div>
     </div>
   </body>
 </html>

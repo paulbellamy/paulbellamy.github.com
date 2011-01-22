@@ -1,0 +1,9 @@
+permalink: /:year/:month/:title
+auto: true
+server: true
+lsi: true
+exclude:
+- Capfile
+- deploy.rb
+- config/
+pretty_style: html_extension
