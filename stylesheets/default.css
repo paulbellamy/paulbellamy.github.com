@@ -2,12 +2,10 @@ a {
   text-decoration: none;
   font-weight: bold;
   color: #000;
-  padding-left: 1px;
 }
 
 a:hover {
-  border-left: 1px dotted #000;
-  padding-left: 0px;
+  border-bottom: 1px dotted #000;
 }
 
 .navigation ul {
@@ -28,3 +26,14 @@ a:hover {
     .navigation ul li a:hover {
       padding-left: 4px;
     }
+
+.column {
+  border-left: 1px solid #BBB;
+}
+  .column .content {
+    padding: 0 1em;
+  }
+
+  .container_12 .alpha {
+    border-right: 0px;
+  }
