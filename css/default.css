@@ -1,0 +1,37 @@
+body {
+  background-color: white;
+  color: #516A78;
+  padding-top: 3em;
+  text-align: justify;
+}
+
+a {
+  text-decoration: none;
+  color: #10222B;
+}
+
+a:hover {
+  border-bottom: 1px dotted #000;
+  color: #10222B;
+}
+
+.content p a, .content ul li a {
+  font-weight: bold;
+}
+
+.header {
+  margin-bottom: 2em;
+}
+
+  .column .content {
+    padding: 0 1em 1em;
+    border-left: 1px solid #9E9E9E;
+  }
+
+    .column .content ul {
+      list-style:none;
+    }
+
+    .column .content ul li {
+      margin: 0.5em 0;
+    }

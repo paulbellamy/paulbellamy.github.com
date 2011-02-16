@@ -2,17 +2,21 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <title>{{ page.title }}</title>
-    <link rel="stylesheet" href="/stylesheets/fonts.css" type="text/css" />
-    <link rel="stylesheet" href="/stylesheets/grid.css" type="text/css" />
-    <link rel="stylesheet" href="/stylesheets/default.css" type="text/css" />
+    <link rel="stylesheet" href="css/blueprint/screen.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" href="css/blueprint/print.css" type="text/css" media="print">  
+    <link rel="stylesheet" href="css/blueprint/src/reset.css" type="text/css" media="screen, projection, print">  
+    <link rel="stylesheet" href="css/blueprint/src/grid.css" type="text/css" media="screen, projection, print">  
+    <link rel="stylesheet" href="css/blueprint/src/typography.css" type="text/css" media="screen, projection, print">  
+    <!--[if lt IE 8]><link rel="stylesheet" href="css/blueprint/ie.css" type="text/css" media="screen, projection"><![endif]-->
+
+    <link rel="stylesheet" href="css/default.css" type="text/css" />
   </head>
   <body>
-    <div class="container_12">
-      <div class="header grid_12 alpha omega">
+    <div class="container">
+      <div class="header span-24 last">
         <a href="http://www.paulbellamy.com"><h1>{{ page.title }}</h1></a>
       </div>
-      <div class="clear">&nbsp;</div>
-      <div class="column grid_3 alpha">
+      <div class="column span-5">
         <div class="content">
           <h2>About</h2>
           <p>
@@ -25,24 +29,24 @@
           </p>
         </div>
       </div>
-      <div class="column grid_3">
+      <div class="column span-5">
         <div class="content">
           <h2>Projects</h2>
           <div class="item">
-            <a href="https://github.com/paulbellamy/Senior-Project"><h3>MorseTweet</h3></a>
+            <h3><a href="Senior-Project">MorseTweet</a></h3>
             <p>
-              An Arduino-based morse-code interface for reading tweets.
+              An Arduino based morse code interface for reading tweets.
             </p>
           </div>
           <div class="item">
-            <a href="https://github.com/paulbellamy/Rhythmbox-iPod-Plugin"><h3>Rhythmbox iPod Syncing</h3></a>
+            <h3><a href="Rhythmbox-iPod-Plugin">Rhythmbox iPod Syncing</a></h3>
             <p>
               Swanky iPod syncing features for Gnome's Rhythmbox music player.
             </p>
           </div>
         </div>
       </div>
-      <div class="column grid_6 omega">
+      <div class="column span-12 last">
         <div class="content">
           <h2>Blog</h2>
           <ul>
