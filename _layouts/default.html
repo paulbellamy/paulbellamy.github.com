@@ -1,25 +1,56 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
   <head>
     <title>{{ page.title }}</title>
-    <link rel="stylesheet" href="/stylesheets/fonts.css" type="text/css" />
-    <link rel="stylesheet" href="/stylesheets/grid.css" type="text/css" />
-    <link rel="stylesheet" href="/stylesheets/default.css" type="text/css" />
+    <link rel="stylesheet" href="css/blueprint/screen.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" href="css/blueprint/print.css" type="text/css" media="print">  
+    <link rel="stylesheet" href="css/blueprint/src/reset.css" type="text/css" media="screen, projection, print">  
+    <link rel="stylesheet" href="css/blueprint/src/grid.css" type="text/css" media="screen, projection, print">  
+    <link rel="stylesheet" href="css/blueprint/src/typography.css" type="text/css" media="screen, projection, print">  
+    <!--[if lt IE 8]><link rel="stylesheet" href="css/blueprint/ie.css" type="text/css" media="screen, projection"><![endif]-->
+
+    <link rel="stylesheet" href="css/default.css" type="text/css" />
   </head>
   <body>
     <div class="container">
-      <div class="header">
-        <h1>{{ page.title }}</h1> 
+      <div class="header span-24 last">
+        <a href="http://www.paulbellamy.com"><h1>{{ page.title }}</h1></a>
       </div>
-      <div class="clear">&nbsp;</div>
-      <div class="navigation grid_5">
-        <ul>
-          <li><a href="/">Blog</a></li>
-          <li><a href="/projects">Projects</a></li>
-        </ul>
+      <div class="column span-5">
+        <div class="content">
+          <h2>About</h2>
+          <p>
+            I'm building amazing things at <a href="http://www.pachube.com/">Pachube</a>. I enjoy a nice cup of tea and I host some of my projects at <a href="http://www.github.com/paulbellamy">Github</a>.
+          </p>
+          <p>
+            e: <a href="mailto:paul@paulbellamy.com">paul@paulbellamy.com</a><br />
+            p: +44 (0) 7786 326 974<br />
+            t: <a href="http://www.twitter.com/pyrhho">@pyrhho</a>
+          </p>
+        </div>
       </div>
-      <div class="content grid_7">
-        {{ content }}
+      <div class="column span-5">
+        <div class="content">
+          <h2>Projects</h2>
+          <div class="item">
+            <h3><a href="Senior-Project">MorseTweet</a></h3>
+            <p>
+              An Arduino based morse code interface for reading tweets.
+            </p>
+          </div>
+          <div class="item">
+            <h3><a href="Rhythmbox-iPod-Plugin">iPod Syncing for Rhythmbox</a></h3>
+            <p>
+              Swanky iPod syncing features for Gnome's Rhythmbox music player.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="column span-12 last">
+        <div class="content">
+          <h2>Blog</h2>
+          {{ content }}
+        </div>
       </div>
     </div>
   </body>
