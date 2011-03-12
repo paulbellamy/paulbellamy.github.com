@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Pachube Graph Generator
+title: Pachube Embeddable Graph Generator
 ---
 
 {{ page.title }}
