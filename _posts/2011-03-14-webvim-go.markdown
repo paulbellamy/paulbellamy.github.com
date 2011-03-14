@@ -1,0 +1,91 @@
+---
+layout: post
+title: webvim.go - A web-based text-editor in Go, backbone.js, socket.io, and redis
+---
+
+{{ page.title }}
+----------------
+
+##### 14 March, 2011
+
+
+webvim.go is a simple text-editor built in Go, backbone.js, socket.io, and redis.  I built it as an experiment, and was inspired by [this guy](http://fzysqr.com/2011/02/28/nodechat-js-using-node-js-backbone-js-socket-io-and-redis-to-make-a-real-time-chat-app/) to post it as a tutorial for others interested in this stack.
+
+## The Ingredients
+
+### Go
+
+[Go](http://golang.org/) is a relatively new language.  It's a statically-typed compiled language, but don't let that intimidate you. It has all the modern conveniences one would expect, virtually instant compile-times, garbage collection, and absolutely phenomenal concurrency. It's fast like C, but safe and fun like Ruby.
+
+
+### Installing Stuff
+
+First we'll need the core ingredients:
+
+ * [Install Go](http://golang.org/doc/install.html)
+ * [Install Redis](http://redis.io/download)
+
+We'll add a few packages for Go, to make our life easier.  Go comes with the package manager 'goinstall' so we'll use that to install a few packages:
+
+    $ goinstall github.com:madari/go-socket.io
+    $ goinstall github.com:hoisie/web.go
+    $ goinstall github.com:hoisie/mustache.go
+    $ goinstall github.com:hoisie/redis.go
+
+Now that that is all set up and ready to go we can begin building our app!
+
+
+### Project Structure
+
+We're going to structure our project into several folders.
+
+  * models      - Our models go here
+  * views       - Our views (not too much will go here)
+  * controllers - Our core application logic goes here
+  * lib         - Our Helpful helpers live here
+  * static      - Our static assets (html, js, images, etc...)
+
+This will help keep us organized as our project grows.
+
+
+### First Steps
+
+Let's start with a really easy first step.  Serving up a static html file!
+
+Fortunately, web.go makes this really easy to do.
+
+    // server.go
+
+    package main
+
+    import (
+      "github.com/hoisie/web.go"
+    )
+
+    func main() {
+      web.Run("0.0.0.0:9999")
+    }
+
+&nbsp;
+
+    // /static/index.html
+
+    <h1>Hello World!</h1>
+
+Web.go helpfully defaults to serving any files in the /static directory. So if we put our html files there it will automatically serve them for us.
+We're ready to compile and run with:
+
+    $ 6g server.go && 6l -o server server.6 && ./server
+    2011/03/14 21:54:26 web.go serving 0.0.0.0:3000
+
+If you are on an x86 machine your compile command will be:
+
+    $ 8g server.go && 8l -o server server.8 && ./server
+    2011/03/14 21:54:26 web.go serving 0.0.0.0:3000
+
+If we pull up a browser to http://localhost:3000 we should see "Hello World!"  Now that we've got a basic server serving up static files, let's give it something a bit more interesting to show our fellow vim-thusiasts.
+
+
+### GUI Is For Chumps
+
+
