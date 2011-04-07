@@ -406,19 +406,143 @@ I'm definitely not a graphic designer, so we'll be keeping the design aspect of 
 
 ### Hooking it Together
 
-Now, we've got our backend saving and serving our data, as well as our interface roughly in place. The large chunk of our app will be written in Backbone.js.
+Now, we've got our backend saving and serving our data, as well as our interface roughly in place. The large chunk of our app will be written in Backbone.js. For simplicity I've stored all the javascript for this app in one file at static/js/application.js.
 
 We'll use Backbone to format, display, and track the state of our data. First order of business is to get it talking to our Socket.io server.
 
-    <Backbone.js models stuff here>
+    // static/js/application.js
+    var models = this.models = {};
+
+This will give us a place to keep track of the models we have declared.
+
+    models.Comment = Backbone.Model.extend({});
+
+    models.CommentCollection = Backbone.Collection.extend({
+      model: models.Comment
+    });
+
+These are the models for our comments, the first is for individual comments, and the second is for a collection of comments.
+
+    models.LiveCommentsModel = Backbone.Collection.extend({
+      initialize: function() {
+        this.comments = new models.CommentCollection(); 
+      }
+
+      // Import a bunch of comments (initial setup)
+      , mport: function(data) {
+        this.comments.add(data.reverse());
+      }
+    });
+
+This models our application, and contains our collection of comments. It has an 'mport' method which takes in a list of comments and stores them.
 
 
 ### Showing our comments
 
-Great, backbone.js has our data, and can send data to our server.  The last thing we need to do is teach backbone.js how to render comments onto the page.
+Displaying our comments is fairly straightforward, but takes a few lines of code.
 
-    <Backbone.js views stuff here>
+    var commentTemplate = '<div class="comment" id="{{id}}"><div class="commentAuthor">{{author}}:</div><div class="commentTimestamp">{{timestamp}}</div><div class="commentBody">{{body}}</div></div>';
+
+    var CommentView = Backbone.View.extend({
+      initialize: function(options) {
+        _.bindAll(this, 'render');
+        this.model.bind('all', this.render);
+      }
+
+      , render: function() {
+        var commentData = { id: this.model.get('Id')
+                   , author: this.model.get('Author')
+                   , body: this.model.get('Body')
+                   , timestamp: this.model.get('CreatedAt')*1000
+                   };
+        $(this.el).html(Mustache.to_html(commentTemplate, commentData));
+        return this;
+      }
+    });
+
+This view is in charge of rendering a single comment.  In the initializer for this view we tell it to respond to anything happening by re-rendering.  It renders with Mustache into our commentTemplate.
+
+var LiveCommentsView = Backbone.View.extend({
+    initialize: function(options) {
+      this.model.comments.bind('add', this.addComment);
+      this.socket = options.socket;
+    }
+
+This starts our main application view.  It is in charge of rendering our application.
+
+  , events: { "submit #commentForm" : "postComment" }
+
+When the #commentForm is submitted, we should trigger "postComment"
+
+  , addComment: function(comment) {
+    var view = new CommentView({model: comment});
+    var el = view.render().el;
+    $('#commentHistory').prepend(el);
+  }
+
+This will add a given comment into our view, render it, and prepend it to our list.  This is used whenever we receive a newly posted comment.
+
+  , msgReceived: function(message){
+    message = $.parseJSON(message);
+    switch(message.event) {
+      case 'initial':
+        $('#commentHistory').html('');
+        this.model.mport(message.data);
+        break;
+      case 'comment':
+        var newComment = new models.Comment(message.data);
+        this.model.comments.add(newComment);
+        // Animate the new comment
+        var elem = $('#commentHistory .comment#' + newComment.get('Id'));
+        elem.slideUp(0);
+        elem.slideDown();
+        break;
+    }
+  }
+
+When we get a message from socket.io, we need to handle it.  Our app knows about two different types of messages: 'initial' messages, which we receive once upon connection, and contain the first page of comments, as well as 'comment' messages which are newly posted comments.
+
+  , postComment: function(){
+    var author = $('input[name=newCommentAuthor]');
+    var body = $('input[name=newCommentBody]');
+    var newComment= new models.Comment({ Author: author.val()
+                                       , Body: body.val()
+                                       , PageUrl: '/'});
+    this.socket.send(newComment.toJSON());
+    body.val('');
+  }
+});
+
+When the #commentForm gets submitted 'postComment' gets triggered. It is responsible for sending the data off to our socket.io server, and clearing out the form. We don't need to worry about adding it and rendering the comment, that will happen when we receive the echoed comment back from the socket.io server)
+
+
+### Connecting to Socket.io
+
+Great, backbone.js has our data, and can render it to the page.  The last thing we need to do is connect the two into our main application controller. This is where we will connect to our socket.io server.
+
+    var LiveCommentsController = {
+      init: function() {
+        this.socket = new io.Socket(null);
+
+        this.model = new models.LiveCommentsModel();
+        var model = this.model;
+        this.view = new LiveCommentsView({model: this.model, socket: this.socket, el: $('#commentArea')});
+        var view = this.view;
+
+        this.socket.on('message', function(msg) {view.msgReceived(msg)});
+        this.socket.connect();
+
+
+        return this;
+      }
+    };
+
+    $(document).ready(function () {
+      window.app = LiveCommentsController.init({});
+    });
+
+This is our controller class. It is in charge of setting everything up (the socket.io client, the model, the view), and starting the app running.
 
 ### Done!
 
-<Final notes here>
+That should be it.  You can check out the whole [source,]() or the [live demo]() (be gentle). If you need any more support, or have some suggestions, please get in touch with me. Thanks again to fzysqr, hoisie, madari, and others for giving awesome examples to help me wrap my head around this stuff.
