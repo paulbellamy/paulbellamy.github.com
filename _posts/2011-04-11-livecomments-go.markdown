@@ -37,9 +37,9 @@ First we'll need the core ingredients:
 
 We'll add a few packages for Go, to make our life easier.  Go comes with the package manager 'goinstall' so we'll use that to install a few packages:
 
-    $ goinstall github.com:madari/go-socket.io
-    $ goinstall github.com:hoisie/mustache.go
-    $ goinstall github.com:hoisie/redis.go
+    $ goinstall github.com/madari/go-socket.io
+    $ goinstall github.com/hoisie/mustache.go
+    $ goinstall github.com/hoisie/redis.go
 
 Now that that is all set up and ready to go we can begin building our app!
 
@@ -335,6 +335,7 @@ I'm definitely not a graphic designer, so we'll be keeping the design aspect of 
     <html>
       <head>
         <meta charset="utf-8" />
+        <title>livecomments.go</title>
         <link rel="stylesheet" type="text/css" href="css/default.css" media="screen" />
         <script src="js/vendor/underscore.js"></script>
         <script src="js/vendor/socket.io.js"></script>
@@ -545,4 +546,4 @@ This is our controller class. It is in charge of setting everything up (the sock
 
 ### Done!
 
-That should be it.  You can check out the whole [source,]() or the [live demo]() (be gentle). If you need any more support, or have some suggestions, please get in touch with me. Thanks again to fzysqr, hoisie, madari, and others for giving awesome examples to help me wrap my head around this stuff.
+That should be it.  You can check out the whole [source,](http://github.com/paulbellamy/livecomments.go) or the [live demo](#) (coming soon). If you need any more support, or have some suggestions, please get in touch with me. Thanks again to fzysqr, hoisie, madari, and others for giving awesome examples to help me wrap my head around this stuff.
