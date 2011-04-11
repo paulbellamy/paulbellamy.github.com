@@ -170,7 +170,7 @@ Our first method we'll need to be able to do is to store create a new comment fr
 Coming from Ruby, I sort of expect my models to have a 'New' method which returns an unsaved object, and a 'Create' method which returns a saved object. This is the create method. It returns a saved Comment object, and follows the comma-ok idiom. This Create method calls our 'New' method to parse the JSON, and then if that went ok it attempts to save the comment to the database and return it.
 
     func Find(id int64) (c Comment, err os.Error) {
-      js, _ := client.Get( fmt.Sprintf("comment:id:%i", id) );
+      js, _ := client.Get( fmt.Sprintf("comment:id:%d", id) );
       return New(js);
     }
 
@@ -226,7 +226,7 @@ If we are going to be sending our comments out to clients (or storing them in th
       }
 
       // Store it by the primary key
-      client.Set(fmt.Sprintf("comment:id:%i", c.Id), []uint8(c.ToJson()));
+      client.Set(fmt.Sprintf("comment:id:%d", c.Id), []uint8(c.ToJson()));
       if (err != nil) { return err; }
 
       if (newRecord) {
@@ -248,7 +248,7 @@ If it *is* a new record we need to get a new ID for it. Redis provides several a
 Now, we've set the ID for this comment (if it is new), and we must save it to the database. We need to enter it in two places. First, the primary key:
 
     // Store it by the primary key
-    client.Set(fmt.Sprintf("comment:id:%i", c.Id), []uint8(c.ToJson()));
+    client.Set(fmt.Sprintf("comment:id:%d", c.Id), []uint8(c.ToJson()));
     if (err != nil) { return err; }
 
 And, secondly, if it is a new record, we'll add it to the left-hand side of the list of comments for its page url.
