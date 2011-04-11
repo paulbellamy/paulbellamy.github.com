@@ -546,4 +546,4 @@ This is our controller class. It is in charge of setting everything up (the sock
 
 ### Done!
 
-That should be it.  You can check out the whole [source,](http://github.com/paulbellamy/livecomments.go) or the [live demo](#) (coming soon). If you need any more support, or have some suggestions, please get in touch with me. Thanks again to fzysqr, hoisie, madari, and others for giving awesome examples to help me wrap my head around this stuff.
+That should be it.  You can check out the whole [source,](http://github.com/paulbellamy/livecomments.go) or the [live demo](http://46.137.121.208/) (running on an EC2 micro instance, be gentle). If you need any more support, or have some suggestions, please get in touch with me. Thanks again to fzysqr, hoisie, madari, and others for giving awesome examples to help me wrap my head around this stuff.
