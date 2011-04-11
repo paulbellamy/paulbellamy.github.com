@@ -150,7 +150,7 @@ These is our basic data-structure.  In go classes are composed of datastructures
       return c, err;
     }
 
-Our first method we'll need to be able to do is to store create a new comment from some JSON.  This method takes a byte-slice ([]byte) of json, and turns it into a Comment. The go "json.Unmarshal" function takes two arguments, the json, and a reference to the storage location.  It will try to match up the fields in the json with their appropriate fields in the storage, so this will give us back a fully-populated Comment object. Our 'New' method follows the 'comma-ok' idiom (which is common in go). It returns two fields, first, the result, and second, an error (or nil). A lot of functions in go follow the comma-ok idiom.
+Our first method we'll need to be able to do is to store create a new comment from some JSON.  This method takes a byte-slice (\[\]byte) of json, and turns it into a Comment. The go "json.Unmarshal" function takes two arguments, the json, and a reference to the storage location.  It will try to match up the fields in the json with their appropriate fields in the storage, so this will give us back a fully-populated Comment object. Our 'New' method follows the 'comma-ok' idiom (which is common in go). It returns two fields, first, the result, and second, an error (or nil). A lot of functions in go follow the comma-ok idiom.
 
     func Create(j []byte) (c Comment, err os.Error) {
       c, err = New(j);
@@ -503,8 +503,8 @@ This will add a given comment into our view, render it, and prepend it to our li
 When we get a message from socket.io, we need to handle it.  Our app knows about two different types of messages: 'initial' messages, which we receive once upon connection, and contain the first page of comments, as well as 'comment' messages which are newly posted comments.
 
   , postComment: function(){
-    var author = $('input[name=newCommentAuthor]');
-    var body = $('input[name=newCommentBody]');
+    var author = $('input\[name=newCommentAuthor\]');
+    var body = $('input\[name=newCommentBody\]');
     var newComment= new models.Comment({ Author: author.val()
                                        , Body: body.val()
                                        , PageUrl: '/'});
