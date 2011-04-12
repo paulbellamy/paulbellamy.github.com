@@ -60,14 +60,14 @@ Fortunately, go makes this really easy to do.
     package main
 
     import (
-      "http";
-      "log";
+      "http"
+      "log"
     )
 
     func main() {
       http.Handle("/", http.FileServer("static/", "/"))
       if err := http.ListenAndServe(":3000", nil); err != nil {
-        log.Fatal("ListenAndServe: ", err);
+        log.Fatal("ListenAndServe: ", err)
       }
     }
 
@@ -102,19 +102,19 @@ For talking to Redis we'll be using redis.go, which we installed earlier. We'll 
     package main
 
     import (
-      "http";
-      "log";
-      "github.com/hoisie/redis.go"; // Import redis.go
+      "http"
+      "log"
+      "github.com/hoisie/redis.go" // Import redis.go
     )
 
-    var client redis.Client; // Set up the client
+    var client redis.Client // Set up the client
 
     func main() {
-      client.Addr = "localhost:6379"; // Tell it where the redis server is
+      client.Addr = "localhost:6379" // Tell it where the redis server is
 
       http.Handle("/", http.FileServer("static/", "/"))
       if err := http.ListenAndServe(":3000", nil); err != nil {
-        log.Fatal("ListenAndServe: ", err);
+        log.Fatal("ListenAndServe: ", err)
       }
     }
 
@@ -125,53 +125,53 @@ Next up is saving and serving JSON from our database. For this we'll be creating
 
     // Import some packages we'll need
     import (
-      "time";
-      "fmt";
-      "json";
-      "strconv";
-      "bytes";
-      "os";
-      "log";
+      "time"
+      "fmt"
+      "json"
+      "strconv"
+      "bytes"
+      "os"
+      "log"
     )
 
     type Comment struct {
-      Id        int64;
-      Author    string;
-      Body      string;
-      CreatedAt int64;
-      PageUrl   string;
+      Id        int64
+      Author    string
+      Body      string
+      CreatedAt int64
+      PageUrl   string
     }
 
 These is our basic data-structure.  In go classes are composed of datastructures and methods which act on it. For this we'll be storing a comment UUID (called Id), a string for the author's name, a string for the body, a timestamp for when the comment was posted, and the page url that the comment was posted on. We won't be using the page url, but it is left as an exercise for the reader.
 
     func New(j []byte) (c Comment, err os.Error) {
-      err = json.Unmarshal(j, &c);
+      err = json.Unmarshal(j, &c)
 
-      return c, err;
+      return c, err
     }
 
 Our first method we'll need to be able to do is to store create a new comment from some JSON.  This method takes a byte-slice (\[\]byte) of json, and turns it into a Comment. The go "json.Unmarshal" function takes two arguments, the json, and a reference to the storage location.  It will try to match up the fields in the json with their appropriate fields in the storage, so this will give us back a fully-populated Comment object. Our 'New' method follows the 'comma-ok' idiom (which is common in go). It returns two fields, first, the result, and second, an error (or nil). A lot of functions in go follow the comma-ok idiom.
 
     func Create(j []byte) (c Comment, err os.Error) {
-      c, err = New(j);
+      c, err = New(j)
       if err != nil {
-        log.Println(fmt.Sprintf("Error Parsing Comment: %s", err));
-        return c, err;
+        log.Println(fmt.Sprintf("Error Parsing Comment: %s", err))
+        return c, err
       }
 
       if err = c.Save(); err != nil {
-        log.Println(fmt.Sprintf("Error Saving Comment: %s", err));
-        return c, err;
+        log.Println(fmt.Sprintf("Error Saving Comment: %s", err))
+        return c, err
       }
 
-      return c, nil;
+      return c, nil
     }
 
 Coming from Ruby, I sort of expect my models to have a 'New' method which returns an unsaved object, and a 'Create' method which returns a saved object. This is the create method. It returns a saved Comment object, and follows the comma-ok idiom. This Create method calls our 'New' method to parse the JSON, and then if that went ok it attempts to save the comment to the database and return it.
 
     func Find(id int64) (c Comment, err os.Error) {
-      js, _ := client.Get( fmt.Sprintf("comment:id:%d", id) );
-      return New(js);
+      js, _ := client.Get(fmt.Sprintf("comment:id:%d", id))
+      return New(js)
     }
 
 Now, if we want to display some comments we'll need to be able to get them out of the database. 'Find' will take a comment Id, and return the object associated with it from redis.  In Redis we are storing our comments as serialized JSON strings. So, comment 5 would be like:
@@ -182,15 +182,15 @@ Now, if we want to display some comments we'll need to be able to get them out o
 It's not a terribly flexible schema, but it provides all the flexibility we need.
 
     func PaginateFor(url string, start int, count int) (c []Comment) {
-      commentIds, _ := client.Lrange(fmt.Sprintf("comment:page_url:%s", url), start, count);
+      commentIds, _ := client.Lrange(fmt.Sprintf("comment:page_url:%s", url), start, count)
       for _, idString := range commentIds {
-        id, _ := strconv.Atoi64(string(idString));
-        comment, err := Find(id);
-        if (err == nil) {
-          c = append(c, comment);
+        id, _ := strconv.Atoi64(string(idString))
+        comment, err := Find(id)
+        if err == nil {
+          c = append(c, comment)
         }
       }
-      return c;
+      return c
     }
 
 Now, 'Find' is great if we only want to retrieve a single comment, but we want to show several at a time, paginated. To support this pagination we are storing one more piece of data in Redis, which is a list of comment IDs for a given page.
@@ -202,66 +202,80 @@ This key lets us query based on a page url and retrieve a list of posts on that 
 
     func (c *Comment) ToJson() (j string) {
       if j, err := json.Marshal(c); err != nil {
-        log.Println("Error Encoding Comment to Json: ", err);
+        log.Println("Error Encoding Comment to Json: ", err)
       } else {
-        return string(j);
+        return string(j)
       }
-      return "";
+      return ""
     }
 
 If we are going to be sending our comments out to clients (or storing them in the database) we will need to be able to convert them into json.  Go makes this really easy!  This method is fairly straight-forward, it simply uses the json.Marshal method (which accepts almost anything, and json-ify's it), and returns the result.  We define this specially so we can use the comment.ToJson() syntax.
 
     func (c *Comment) Save() (err os.Error) {
 
-      newRecord := false;
-      if (c.Id == 0) { newRecord = true; }
+      newRecord := false
+      if c.Id == 0 {
+        newRecord = true
+      }
 
-      if (newRecord) {
+      if newRecord {
         // New record we should get an Id for it
-        id, err := client.Incr("global:nextCommentId");
-        if (err != nil) { return err; }
-        c.Id = id;
+        id, err := client.Incr("global:nextCommentId")
+        if err != nil {
+          return err
+        }
+        c.Id = id
 
-        c.CreatedAt = time.Seconds();
+        c.CreatedAt = time.Seconds()
       }
 
       // Store it by the primary key
-      client.Set(fmt.Sprintf("comment:id:%d", c.Id), []uint8(c.ToJson()));
-      if (err != nil) { return err; }
-
-      if (newRecord) {
-        // New record we should insert it into the page listing
-        err :=client.Lpush(fmt.Sprintf("comment:page_url:%s", c.PageUrl), bytes.NewBufferString(strconv.Itoa64(c.Id)).Bytes());
-        if (err != nil) { return err; }
+      client.Set(fmt.Sprintf("comment:id:%d", c.Id), []uint8(c.ToJson()))
+      if err != nil {
+        return err
       }
 
-      return nil;
+      if newRecord {
+        // New record we should insert it into the page listing
+        err := client.Lpush(fmt.Sprintf("comment:page_url:%s", c.PageUrl), bytes.NewBufferString(strconv.Itoa64(c.Id)).Bytes())
+        if err != nil {
+          return err
+        }
+      }
+
+      return nil
     }
 
 This method is where quite a bit of the work is done.  This is our 'comment.Save()' method, which takes our comment and saves it to Redis. First off we check whether this comment is new or not:
 
-    newRecord := false;
-    if (c.Id == 0) { newRecord = true; }
+    newRecord := false
+    if c.Id == 0 {
+      newRecord = true
+    }
 
 If it *is* a new record we need to get a new ID for it. Redis provides several atomic methods, one of which is Incr.  As you might guess, Incr increments an integer and returns the new value.  If the key does not exist it is initialized to 0, incremented to 1, and returned. We're using 'global:nextCommentId' to store our global comment counter. We'll also set the CreatedAt timestamp to the seconds since the epoch.
 
 Now, we've set the ID for this comment (if it is new), and we must save it to the database. We need to enter it in two places. First, the primary key:
 
     // Store it by the primary key
-    client.Set(fmt.Sprintf("comment:id:%d", c.Id), []uint8(c.ToJson()));
-    if (err != nil) { return err; }
+    client.Set(fmt.Sprintf("comment:id:%d", c.Id), []uint8(c.ToJson()))
+    if err != nil {
+      return err
+    }
 
 And, secondly, if it is a new record, we'll add it to the left-hand side of the list of comments for its page url.
 
-    if (newRecord) {
+    if newRecord {
       // New record we should insert it into the page listing
-      err :=client.Lpush(fmt.Sprintf("comment:page_url:%s", c.PageUrl), bytes.NewBufferString(strconv.Itoa64(c.Id)).Bytes());
-      if (err != nil) { return err; }
+      err := client.Lpush(fmt.Sprintf("comment:page_url:%s", c.PageUrl), bytes.NewBufferString(strconv.Itoa64(c.Id)).Bytes())
+      if err != nil {
+        return err
+      }
     }
 
 Done! Since everything happened according to plan and we haven't hit an error, we can return 'nil' for the error code.
 
-    return nil;
+    return nil
 
 ### Socket.io Server
 
@@ -270,20 +284,20 @@ We need us a socket.io server! We've got our server talking to the database, but
     package main
 
     import (
-      "json";
-      "github.com/madari/go-socket.io";
-      "github.com/hoisie/redis.go";
-      "http";
-      "log";
+      "json"
+      "github.com/madari/go-socket.io"
+      "github.com/hoisie/redis.go"
+      "http"
+      "log"
     )
 
-    var client redis.Client;
+    var client redis.Client
 
-    var sio *socketio.SocketIO;
+    var sio *socketio.SocketIO
 
     func socketIOConnectHandler(c *socketio.Conn) {
-      j, _ := json.Marshal(PaginateFor("/", 0, 10));
-      c.Send("{\"event\":\"initial\", \"data\":" + string(j) + "}");
+      j, _ := json.Marshal(PaginateFor("/", 0, 10))
+      c.Send("{\"event\":\"initial\", \"data\":" + string(j) + "}")
     }
 
 When a client connects we have to send them a list of existing comments for that page.  We'll do that by sending them a message containing "event":"initial", as well as a list of existing comments to render.
@@ -295,31 +309,31 @@ When a client disconnects we don't really need to do anything. This is just incl
 
     func socketIOMessageHandler(c *socketio.Conn, msg socketio.Message) {
       if comment, err := Create([]uint8(msg.Data())); err == nil {
-        log.Println("Stored Comment: ", comment.ToJson());
-        sio.Broadcast("{\"event\":\"comment\", \"data\":" + comment.ToJson() + "}");
+        log.Println("Stored Comment: ", comment.ToJson())
+        sio.Broadcast("{\"event\":\"comment\", \"data\":" + comment.ToJson() + "}")
       } else {
-        log.Println("Error Storing Comment: ", err);
+        log.Println("Error Storing Comment: ", err)
       }
     }
 
 When we get a message from the client, we want to save it to Redis as a new comment, and when that is done we will Broadcast it back out to all the other users. If you want to limit your comments by page url, this should only broadcast to users on the same page.  However, that is a bit (not much) more complicated, so I've left it out for now.
 
     func main() {
-      client.Addr = "localhost:6379";
+      client.Addr = "localhost:6379"
 
       // create the socket.io server and mux it to /socket.io/
       config := socketio.DefaultConfig
       config.Origins = []string{"*"}
       sio = socketio.NewSocketIO(&config)
-      
-      sio.OnConnect(socketIOConnectHandler);
-      sio.OnDisconnect(socketIODisconnectHandler);
-      sio.OnMessage(socketIOMessageHandler);
 
-      mux := sio.ServeMux();
+      sio.OnConnect(socketIOConnectHandler)
+      sio.OnDisconnect(socketIODisconnectHandler)
+      sio.OnMessage(socketIOMessageHandler)
+
+      mux := sio.ServeMux()
       mux.Handle("/", http.FileServer("static/", "/"))
-      if err := http.ListenAndServe(":3000", mux); err != nil {
-        log.Fatal("ListenAndServe: ", err);
+      if err := http.ListenAndServe(":80", mux); err != nil {
+        log.Fatal("ListenAndServe: ", err)
       }
     }
 
