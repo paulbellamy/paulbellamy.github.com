@@ -1,0 +1,31 @@
+---
+layout: nil
+---
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title>paulbellamy.com</title>
+  <link href="http://paulbellamy.com/"/>
+  <link type="application/atom+xml" rel="self" href="http://paulbellamy.com/atom.xml"/>
+  <updated>{{ site.time | date_to_xmlschema }}</updated>
+  <id>http://paulbellamy.com/</id>
+  <author>
+    <name>Paul Bellamy</name>
+    <email>paul.a.bellamy@gmail.com</email>
+  </author>
+
+  {% for post in site.posts %}
+  <entry>
+    <id>http://paulbellamy.com{{ post.id }}</id>
+    <link type="text/html" rel="alternate" href="http://paulbellamy.com{{ post.url }}"/>
+    <title>{{ post.title }}</title>
+    <updated>{{ post.date | date_to_xmlschema }}</updated>
+    <author>
+      <name>Paul Bellamy</name>
+      <uri>http://paulbellamy.com/</uri>
+    </author>
+    <content type="html">{{ post.content | xml_escape }}</content>
+  </entry>
+  {% endfor %}
+
+</feed>
