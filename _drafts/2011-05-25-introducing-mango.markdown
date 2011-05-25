@@ -34,7 +34,7 @@ Mango structures web applications around the idea of a "stack".  A stack is comp
 Mango apps can be as simple as:
 
     func Hello(env mango.Env) (mango.Status, mango.Headers, mango.Body) {
-      return 200, map[string]string{}, mango.Body("Hello World!")
+      return 200, mango.Headers{}, mango.Body("Hello World!")
     }
 
 To instantiate this app we can do:
@@ -56,7 +56,7 @@ Middleware is where Mango really starts to become useful, so let's write a quick
 
     func PanickyPat(env Mango.Env) (mango.Status, mango.Headers, mango.Body) {
       panic("My name is Pat, and I ... FREAK OUT!")
-      return 200, map[string]string{}, mango.Body("Phew! Didn't panic!")
+      return 200, mango.Headers{}, mango.Body("Phew! Didn't panic!")
     }
 
 Now, if we want to catch these errors, and instead show a nice error page we can use Mango's ShowErrors middleware.
