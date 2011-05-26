@@ -106,6 +106,14 @@ As of this writing the list of middleware is small, but it will hopefully be gro
 * ShowErrors
 * Routing
 
+## How Fast Is It?
+
+I've included some benchmarks in the mango\_test.go file, you can run them with:
+
+    gotest -test.bench=".\*"
+
+On my laptop I get about 0.14-0.16 ms per request, which is about 6500-7000 requests/second.  So, it's fairly fast.  No doubt there is room for improvement to happen as the project develops.
+
 ## More Info
 
 Check out the [github repo](http://github.com/paulbellamy/mango) for more information on Mango, and to stay up to date on the newest developments.
