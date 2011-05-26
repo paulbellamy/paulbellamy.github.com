@@ -6,7 +6,7 @@ title: Introducing Mango
 {{ page.title }}
 ----------------
 
-##### 25 May, 2011
+##### 26 May, 2011
 
 
 ## What?
