@@ -1,7 +1,14 @@
 body {
+  position:absolute;
   background-color: white;
-  color: #516A78;
-  padding: 3em;
+  padding: 1em 1em 2em 1em;
+  color: #10222B;
+  clear: both;
+  width: 840pt;
+}
+
+div {
+  position:relative;
 }
 
 a {
@@ -14,7 +21,11 @@ a:hover {
   color: #10222B;
 }
 
-.content p a, .content ul li a {
+p {
+  color: #516A78;
+}
+
+.column p a, .column ul li a {
   font-weight: bold;
 }
 
@@ -22,18 +33,34 @@ a:hover {
   margin-bottom: 2em;
 }
 
-  .column .content {
+  .column {
+    float: left;
     padding: 0 1em 1em;
     border-left: 1px solid #9E9E9E;
+    width: 180pt;
+    margin-right: 1.25em;
   }
 
-    .column .content ul {
+  .column.last {
+    width: 360pt;
+    margin-right: 0;
+  }
+
+    .column h2:first-child {
+      margin-bottom: 0.25em;
+    }
+
+    .column ul {
       list-style:none;
     }
 
-    .column .content ul li {
+    .column ul li {
       margin: 0.5em 0;
     }
+
+.item {
+  margin-bottom: 1em;
+}
 
 pre {
   margin: 1em;
@@ -50,3 +77,38 @@ pre {
   white-space: -o-pre-wrap;    /* Opera 7 */
   word-wrap: break-word;       /* Internet Explorer 5.5+ */
 }
+
+/*** Fonts ***/
+body {
+  font-family: Georgia, serif;
+}
+
+body h1:first-child {
+  margin-top: 0;
+}
+
+h1 {
+  font-size: 3.25em;
+  margin: 0.65em 0 0.33em 0;
+}
+h2 {
+  font-size: 2.75em;
+  margin: 0.55em 0 0.26em 0;
+}
+h3 {
+  font-size: 1.8em;
+  margin: 0.36em 0 0.18em 0;
+}
+h4 {
+  font-size: 1.55em;
+  margin: 0.31em 0 0.16em 0;
+}
+h5 {
+  font-size: 1.4em;
+  margin: 0.28em 0 0.14em 0;
+}
+p {
+  font-size: 1em;
+  margin: 0.2em 0 0.1em 0;
+}
+
