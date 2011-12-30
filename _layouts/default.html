@@ -1,15 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>{{ page.title }}</title>
-    <link rel="stylesheet" href="css/blueprint/screen.css" type="text/css" media="screen, projection">
-    <link rel="stylesheet" href="css/blueprint/print.css" type="text/css" media="print">  
-    <link rel="stylesheet" href="css/blueprint/src/reset.css" type="text/css" media="screen, projection, print">  
-    <link rel="stylesheet" href="css/blueprint/src/grid.css" type="text/css" media="screen, projection, print">  
-    <link rel="stylesheet" href="css/blueprint/src/typography.css" type="text/css" media="screen, projection, print">  
-    <!--[if lt IE 8]><link rel="stylesheet" href="css/blueprint/ie.css" type="text/css" media="screen, projection"><![endif]-->
-
-    <link rel="stylesheet" href="css/default.css" type="text/css" />
+    <title>paulbellamy.com - {{ page.title }}</title>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/css/default.css" type="text/css" />
 
     <!-- RSS / ATOM autodiscovery -->
     <link rel="alternate" type="application/atom+xml" title="ATOM" href="http://paulbellamy.com/atom.xml">
@@ -32,49 +26,16 @@
   </head>
   <body>
     <div class="header">
-      <a href="http://www.paulbellamy.com"><h1>{{ page.title }}</h1></a>
+      <a href="http://www.paulbellamy.com"><h1>paulbellamy.com</h1></a>
+    </div>
+    <div class="column nav">
+      <ul>
+        <li{% if page.name == 'about' %} class="selected"{% endif %}><a href="/about">About</a></li>
+        <li{% if page.name == 'projects' %} class="selected"{% endif %}><a href="/projects">Projects</a></li>
+        <li{% if page.name %}{% else %} class="selected"{% endif %}><a href="/">Blog</a></li>
+      </ul>
     </div>
     <div class="column">
-      <h2>About</h2>
-      <p>
-        I'm building amazing things at <a href="http://www.pachube.com/">Pachube</a>. I enjoy a nice cup of tea and I host some of my projects at <a href="http://www.github.com/paulbellamy">Github</a>.
-      </p>
-      <br />
-      <p>
-        <a href="mailto:paul@paulbellamy.com">paul@paulbellamy.com</a><br />
-        +44 (0) 7786 326 974<br />
-        <a href="http://www.twitter.com/pyrhho">@pyrhho</a>
-      </p>
-    </div>
-    <div class="column">
-      <h2>Projects</h2>
-      <div class="item">
-        <h5><a href="http://github.com/paulbellamy/mango">Mango</a></h5>
-        <p>
-          Mango is a modular web-application framework for Go, inspired by Rack, and PEP333.
-        </p>
-      </div>
-      <div class="item">
-        <h5><a href="http://pachube.github.com/pachube_graph_library">Pachube Graph Generator</a></h5>
-        <p>
-          A simple tool for turning Pachube data into embeddable graphs for your website.
-        </p>
-      </div>
-      <div class="item">
-        <h5><a href="Senior-Project">MorseTweet</a></h5>
-        <p>
-          An Arduino based morse code interface for reading tweets.
-        </p>
-      </div>
-      <div class="item">
-        <h5><a href="Rhythmbox-iPod-Plugin">iPod Syncing for Rhythmbox</a></h5>
-        <p>
-          Swanky iPod syncing features for Gnome's Rhythmbox music player.
-        </p>
-      </div>
-    </div>
-    <div class="column last">
-      <h2>Blog</h2>
       {{ content }}
     </div>
     <script type="text/javascript">
