@@ -32,19 +32,42 @@ a:hover {
   .column {
     float: left;
     padding-right: 24px;
-    width: 180px;
+    width: 480px;
     margin-right: 24px;
   }
 
-  .column.last {
-    width: 360px;
+  .column.nav {
+    width: 90px;
+    text-align: right;
     margin-right: 0;
   }
 
-  .column.post {
-    width: 480px;
-    margin-right: 0;
-  }
+    .column.nav li {
+      padding-right: 6px;
+    }
+
+      .column.nav li a {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 16px;
+        line-height: 24px;
+        font-weight: 400;
+      }
+
+    .column.nav li.selected {
+      background-color: steelblue;
+
+      -moz-border-radius: 5px;
+      border-radius: 5px;
+    }
+
+    .column.nav li.selected a {
+      color: white;
+    }
+
+      .column.nav li.selected a:hover {
+        border-bottom: 1px dotted white;
+      }
+
 
     .column ul {
       list-style:none;
