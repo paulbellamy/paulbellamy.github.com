@@ -7,3 +7,4 @@ exclude:
 - deploy.rb
 - config/
 pretty_style: html_extension
+markdown: rdiscount
