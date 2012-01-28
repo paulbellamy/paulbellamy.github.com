@@ -1,0 +1,113 @@
+---
+layout: post
+title: Node vs Go - Why I'll Stick With Javascript
+---
+
+{{ page.title }}
+----------------
+
+##### 28 January, 2012
+
+
+I've done a bit of Google Go, and done a bit of Node.js, and I thought it was time to do a bit of a comparison between them.
+
+I'd like to preface this with a few disclaimers. This comparison is completely subjective, and you are welcome to disagree.
+
+Most of the problems I work on solving are networking-centric, Internet-based, and heavy on I/O. As a result, I'll be evaluating the languages from that perspective.
+
+
+## Google Go
+
+For those that haven't done any Go yet, it's "a fast, statically typed, compiled language that feels like a dynamically typed, interpreted language". It is backed by Google, and is used at Google, Heroku, and other places.
+
+### Advantages
+
+* Type-safety
+* Statically-linked compilation
+    * Makes deployment extremely easy
+* High concurrency
+* Large core library
+    * Stuff like tar, zip, blowfish, gifs, pngs, templating engines, even the websocket library are in core
+* Primitives aimed at concurrency
+    * Atomic Channels to reinforce that you should share memory by communicating, instead of communicating by sharing memory. They make it very easy to implement concurrent, scalable solutions without getting stuck in race-condition hell.
+* Extremely fast
+    * On par with C for some tasks. For reference, my not-really-optimized, port of Rack to Go ([mango](http://github.com/paulbellamy/mango)), easily achieves ~7000 requests/second. There are also excellent [tools and tutorials](http://blog.golang.org/2011/06/profiling-go-programs.html) for optimizing Go programs
+* Easy to keep up with latest release
+    * The gofix utility makes keeping up with new releases trivial, as it automatically fixes your code
+
+### Disadvantages
+
+* Type-safety
+    * Can be off-putting if not used to it. Converting strings to byte buffers, and back, for example.
+* Third-party libraries are third-class citizens
+    * With the focus on a large standard core, third-party libraries have been largely left behind.
+* Lack of community
+    * Possibly due to the community being composed of Google, Heroku, etc and used for more proprietary tech.
+* Naive garbage collection
+    * Because Go is so new it currently still uses a stop-the-world garbage collector. So, periodically your entire program stops and garbage collection happens. (Note: If this has been fixed let me know and I'll update this)
+* Focus on doing things 'the right way'
+    * This is probably shown most in the 'gofmt' utility which automatically formats your code so everyone's code looks the same. Uniformity is highly prized in the Go community.
+
+### Impressions
+
+Go is a pleasure to develop in. Writing Go is the first time I have really enjoyed writing in a C-style systems language. The speed of the compiler, while it seems like it wouldn't be a big thing, goes a long way to making the language fun to develop in. It enables tools like [gorun](https://launchpad.net/gorun), which is a simple script to compile and run a Go program on-the-fly. Furthermore, the core libraries are complete and generally pretty good. However, due to the poor support for (and selection of) third-party libraries once you start getting into things not included in the core libraries your experience becomes much more DIY.
+
+In general, Go really shines for applications which are easily parallelizable, and require lots of CPU. Go is a great choice when you need C's speed and control, but don't want the maintenance headaches, garbage collection, and coding overhead of developing in C. For example, [Tinkercad](http://tinkercad.com) use a cluster of Go servers for performing heavy backend calculations.
+
+In short, Go feels like it is what C would be like if it were developed today.
+
+
+## Node.js
+
+For those that haven't done any Node.js before, it is "a platform for easily building fast, scalable network applications". With event-driven non-blocking I/O, it forces an asynchronous 'callback-passing' style of development. As a Javascript engine it doesn't require you to learn any new language or syntax (assuming you already know Javascript).
+
+### Advantages
+
+* Javascript (or CoffeeScript)
+    * Already a familiar language
+    * Not perfect, but 'good enough'
+    * Large existing community and libraries to draw from. Though most browser libraries aren't applicable, they do mean there is quite a bit of experience with the language.
+* Homogenous web stack
+    * Less impedance mismatch when moving around the stack. When developing for the web you can use Javascript all the way from the browser to the database.
+* Third-party libraries are first-class citizens
+    * The focus is on keeping the core library as small as possible
+    * Excellent package manager (NPM) included from the beginning. For the Rubyists, NPM is like rubygems and bundler combined.
+    * The number of NPM libraries are growing astonishingly quickly.
+    * Everything is a package. In Node the prevailing wisdom is to make everything an NPM package. Bouncy (an HTTP Proxy), Forever (a Monit-like process manager), and even NPM itself are all packages which can be required and used programatically.
+* Socket.io and JSON
+    * Lots of amazing JSON network synchronization work already.
+* Excellent cluster management tools
+    * dnode, hook.io, replicant, cluster, and others...
+* Focus on isolation of processes and fault-handling
+    * Node's single-threaded nature forces it to be scaled by using lots of isolated communicating processes. This has pros and cons, because while it is initially more difficult, it also helps avoid race conditions, and means that scaling across machines is not much harder.
+* 'Crash-only software'
+    * Because of the multiple isolated, communicating processes model of scaling crash-handling becomes extremely important. Writing [Crash-only software](http://en.wikipedia.org/wiki/Crash-only_software) is a real, and practical method of handling failure which can lead to a surprising level of robustness from programs. Because each component of the system is isolated in seperate processes, the catastrophic failure of any one can't bring down the entire system.
+
+### Disadvantages
+
+* Single-threaded
+    * Since Node is single-threaded you rely on forking, and communicating between processes to make use of multiple cores. The upside is that Node sees less difference between multiple core concurrency and multiple machine concurrency
+* Not 'proven' at scale
+    * Voxer have been doing large-scale node stuff, but if you know of any other large-scale node stuff please let me know.
+* Callback Hell
+    * Javascript is simply not everyone's cup of tea. You've got to manage your flow-control very tightly. Fortunately there are great libraries like [Seq](http://github.com/substack/node-seq) to help manage that.
+
+### Impressions
+
+While the language of Node.js is nothing special (it's just Javascript after all), the thing that impresses me most about Node.js is its community. They are absolutely rabid about the language, and are some of the most pragmatically focused developers I have ever seen.
+
+Ryan Dahl's post about ['I hate almost all software'](https://plus.google.com/115094562986465477143/posts/Di6RwCNKCrf) really drives home the Node community's focus on user experience, and getting stuff done.
+
+## Conclusions
+
+It would be hard to go wrong with either of these languages. The choice really depends on your needs and development style.
+
+Both Go and Node are very pragmatic, and concerned with 'just getting stuff done'.
+
+Both have excellent hosting solutions. Go has AppEngine, while Node has JoyentCloud and Nodejitsu. Also, both can be deployed to Heroku's Cedar stack.
+
+However, there are a few key differences. Node.js has a rabid, and rapidly growing community, tons of third-party libraries, and an extremely pragmatic focus. Google Go has a large, complete set of core libraries, an easy path to high concurrency, and is blazingly fast.
+
+Go also has a focus on the 'correctness' of the solution (evidenced by it's type-safety) and it's community prizes uniformity, emphasizing doing things the idiomatic way. The Node community tends to be more focused on the functionality, and are more tolerant of doing things in different and unique ways (e.g. Javascript vs Coffeescript).
+
+For myself, I prefer Node's 'anything-goes' approach, and amazing community. Node is an perfect fit for the problems I need to solve. I like Go, and enjoy developing in it, but Node is the one I keep coming home to.
