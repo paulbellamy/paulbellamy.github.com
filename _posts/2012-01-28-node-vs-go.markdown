@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Node vs Go - It's all about community
+title: Node vs Go
 ---
 
 {{ page.title }}
