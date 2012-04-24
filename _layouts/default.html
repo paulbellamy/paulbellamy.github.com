@@ -9,6 +9,8 @@
     <link rel="alternate" type="application/atom+xml" title="ATOM" href="http://paulbellamy.com/atom.xml">
     <link rel="alternate" type="application/rss+xml" title="RSS" href="http://paulbellamy.com/rss.xml">
 
+    <script type="text/javascript" src="/javascripts/d3.js"></script>
+
     <script type="text/javascript">
 
       var _gaq = _gaq || [];
@@ -25,9 +27,18 @@
     <script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
   </head>
   <body>
-    <div class="header">
-      <a href="http://www.paulbellamy.com"><h1>paulbellamy.com</h1></a>
-    </div>
+    <header>
+      <a href="http://www.paulbellamy.com">
+        <h1>Paul</h1>
+        <h2>Bellamy</h2>
+      </a>
+    </header>
+
+    <section class="content">
+      {{ content }}
+    </section>
+
+    <!--
     <div class="column nav">
       <ul>
         <li{% if page.name == 'about' %} class="selected"{% endif %}><a href="/about">About</a></li>
@@ -36,8 +47,8 @@
       </ul>
     </div>
     <div class="column">
-      {{ content }}
     </div>
+    -->
     <script type="text/javascript">
       var _sf_async_config={uid:22314,domain:"paulbellamy.com"};
       (function(){
