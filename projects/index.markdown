@@ -7,6 +7,11 @@ name: projects
 {{ page.title }}
 ----------------
 
+### [cconf](http://github.com/paulbellamy/cconf)
+
+Dead-easy configuration for Clojure apps.
+
+
 ### [Mango](http://github.com/paulbellamy/mango)
 
 Mango is a modular web-application framework for Go, inspired by Rack, and PEP333.
