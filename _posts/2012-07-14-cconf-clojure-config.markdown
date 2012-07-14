@@ -39,4 +39,4 @@ Because configuration shouldn't be difficult.
     (:host settings)
     (:port settings)
 
-You should check out the [github repo](http://www.github.com/paulbellamy/cconf). For more complete documentation.
+You should check out the [github repo](http://www.github.com/paulbellamy/cconf). For the full documentation.
