@@ -19,7 +19,7 @@ Because configuration shouldn't be difficult.
 
 ## How?
 
-    (require 'cconf)
+    (require '[cconf.core :as cconf])
 
     ;; The different modules are entirely independent, and each
     ;; one is optional. So if you only want to load arguments
