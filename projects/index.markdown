@@ -12,6 +12,11 @@ name: projects
 Dead-easy configuration for Clojure apps.
 
 
+### [Pipe](http://github.com/paulbellamy/pipe)
+
+Concurrent, sequential, functional transformations along Golang channels
+
+
 ### [Mango](http://github.com/paulbellamy/mango)
 
 Mango is a modular web-application framework for Go, inspired by Rack, and PEP333.
