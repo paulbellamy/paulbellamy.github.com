@@ -8,6 +8,7 @@ title: Node vs Go
 
 ##### 28 January, 2012
 
+**Note: This comparison is quite out of date, and once Go 1.1 is released, I'm planning to revisit this comparison and cover what has changed.**
 
 I've done a bit of Google Go, and done a bit of Node.js, and I thought it was time to do a bit of a comparison between them.
 
@@ -109,5 +110,3 @@ Both have excellent hosting solutions. Go has AppEngine, while Node has JoyentCl
 However, there are a few key differences. Node.js has a rabid, and rapidly growing community, tons of third-party libraries, and an extremely pragmatic focus. Google Go has a large, complete set of core libraries, an easy path to high concurrency, and is blazingly fast.
 
 Go also has a focus on the 'correctness' of the solution (evidenced by it's type-safety) and it's community prizes uniformity, emphasizing doing things the idiomatic way. The Node community tends to be more focused on the functionality, and are more tolerant of doing things in different and unique ways (e.g. Javascript vs Coffeescript).
-
-For myself, I prefer Node's 'anything-goes' approach, and amazing community. Node is an perfect fit for the problems I need to solve. I like Go, and enjoy developing in it, but Node is the one I keep coming home to.
