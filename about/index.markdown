@@ -7,7 +7,7 @@ name: about
 {{ page.title }}
 ----------------
 
-I'm a London-based Software Developer building amazing things at <a href="https://www.cosm.com/">Cosm</a>. I enjoy a nice cup of tea and I host some of my projects at <a href="http://www.github.com/paulbellamy">Github</a>.
+I'm a London-based Software Developer building amazing things at <a href="https://xively.com/">Xively</a>. I enjoy a nice cup of tea and I host some of my projects at <a href="http://www.github.com/paulbellamy">Github</a>.
 
 Occasionally, [I blog](/), but usually only when I have something to announce.
 
