@@ -7,8 +7,8 @@ name: about
 {{ page.title }}
 ----------------
 
-I'm a London-based Software Developer building amazing things at <a href="https://xively.com/">Xively</a>. I enjoy a nice cup of tea and I host some of my projects at <a href="http://www.github.com/paulbellamy">Github</a>.
+I'm a London-based Software Developer, Distributed Systems Nerd, and Amateur Metalsmith. Some of my projects are hosted at <a href="http://www.github.com/paulbellamy">Github</a>.
 
-Occasionally, [I blog](/), but usually only when I have something to announce.
+Occasionally, [I blog](/), but not particulary often.
 
-I respond to email at [paul@paulbellamy.com](mailto:paul@paulbellamy.com), but it's probably best to reach me on twitter as [@pyrhho](http://www.twitter.com/pyrhho).
+I respond to email at [paul.a.bellamy@gmail.com](mailto:paul.a.bellamy@gmail.com), but it's probably best to reach me on twitter as [@pyrhho](http://www.twitter.com/pyrhho).
