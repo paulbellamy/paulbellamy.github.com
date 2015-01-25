@@ -1,0 +1,73 @@
+https://keybase.io/paulbellamy
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://paulbellamy.com
+  * I am paulbellamy (https://keybase.io/paulbellamy) on keybase.
+  * I have a public key with fingerprint 3E60 6446 06E5 A7DA 0E1E  C190 F2F3 DFDF 2D4D 0C48
+
+To claim this, I am signing this object:
+
+{
+    "body": {
+        "client": {
+            "name": "keybase.io node.js client",
+            "version": "0.7.3"
+        },
+        "key": {
+            "fingerprint": "3e60644606e5a7da0e1ec190f2f3dfdf2d4d0c48",
+            "host": "keybase.io",
+            "key_id": "F2F3DFDF2D4D0C48",
+            "uid": "8e2c3834bae8949379f38d713de61500",
+            "username": "paulbellamy"
+        },
+        "merkle_root": {
+            "ctime": 1422223562,
+            "hash": "c2628f04e194616a06243c2b0f69f402f43b388c12758cd8ec1d624600d89b433e23d778c6c84bdfd6585ce42a3fb59406521941ab4ea4e2a81b9023b30297f4",
+            "seqno": 140928
+        },
+        "service": {
+            "hostname": "paulbellamy.com",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1422223610,
+    "expire_in": 157680000,
+    "prev": "d0cd7eab63286985ebc81f4f0fae75c6b631687b275a11d109e8ea7790d5ce2a",
+    "seqno": 8,
+    "tag": "signature"
+}
+
+with the aforementioned key, yielding the PGP signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: GnuPG v1.4.12 (Darwin)
+
+owFlUl1sFUUUvre0/FQNtQ8NCTVpNhETvdzO387OXn3CpvQFjYo/gM1lZudsu3Dv
+7mV323rBSkwrkYdGQYNK9QET0RpjSKsJhBqiQUgqAjaEiCFp1BDqk4nCC38629Qo
+cR4mM3O+853vO2fevG9JriH/x59zc2s33NuT/+43ldv4bf+NXZaKdN0q7bK8SgBh
+mp1CWQWrZG2HupIJFIOoI4w0FLclHYuYgjUIcRJEoUGholOk1nAhg2fJfhD2QVyL
+g4zLosARZ8xsYEtHSwQYPOwin/hU+9onmmnkMWEo+6MkvauqtcBZDrR57SbdtKu7
+q5t0sS70+AJ+YCEggHhUUKYkCJe51HF9KrSDqQaObYQyYALxoqWaHKgoqFRktZ5J
+rkK8vQLlOIoWfHtpkKEwI2ZRmxMjSib9Js8jnAgfMcAu45hLxAmjHlHI567PEPEZ
+VVQIDxPHFp4WxqM2EI6QFq5ilAKh2nGExz3BlDHObWF7wIikvrJdhrhNDDWWioFk
+QKTAykXEkCLiOj4zLhLYEUaZOOQSMZzd48HAg0x31rn/Gyx6UdXk1eIojbyoYoL9
+aVorZb7Teg2sqZI1BKq8yFNWQajN6P47W2ygd/eEY1Sw4KVaEEM5yBC2wwUyK6sD
+g6aGmaZ2QCpOieCusEF5AvvMR74Ex/a4CWAuHGUaJTHWGLkgQDqOi7RpCJH/OhVG
+p+wzlEnQF8p0IAZreG++vTGXb8gtbWrIPm+ueUXLPz96/KnluQMjhZnyvvnGOwf3
+fHm2Z669denWsaGfj6pf7qCefXpvSE/fv/PH1g+uNk+sW5+OdLjuZG/yjKwdeaXt
+I2i5frmts/rZO/PfT6/8/K0DF45dej6/aqj0XFPn0wcfPi833/x45smfXhxvuPjC
+qiVrxvxNZ3Z/8urJ12aWD69ddnNWjseF49+cP3GITE30XvihVHvo1i3ifN0zec+V
+KxfHLr29orDy3cP7j78ej64Rz773xvtXi3Ozg2c+bNn84Il1D3yBH30sCjrz8498
+Wt/dOD0FW7bAsVO9Ey1q0zU53bRehW2rz42Oti4LDwU7m0nb/g1bX74xuvGr3y9P
+zl7fc7v9r5Fft50kR6aOPvE3
+=gckp
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/paulbellamy
