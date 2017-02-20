@@ -61,7 +61,8 @@ selection may be between 1-100.
 
 First, each participant secretly makes their selection, and computes a
 hash of it. For this example, I'll be using sha1 hashing abbreviated
-to 6 characters, but the hash function is less important.
+to 6 characters, but the specific hashing function chosen is not
+important to the operation of the algorithm.
 
 ```
 Participant  A        B
