@@ -60,14 +60,14 @@ For a simple example let's say we have 2 participants (A and B), and each
 selection may be between 1-100.
 
 First, each participant secretly makes their selection, and computes a
-hash of it. For this example, I'll be using sha1 hashing abbreviated
+hash of it. For this example, I'll be using sha256 hashing abbreviated
 to 6 characters, but the specific hashing function chosen is not
 important to the operation of the algorithm.
 
 ```
 Participant  A        B
 Selection    6        47
-Hash         ccf271   5de163
+Hash         06e9d5   e3667f
 ```
 
 Once generated, each participant broadcasts their hash, but keeps
@@ -95,7 +95,7 @@ They may then combine the selections to compute the resulting outcome:
 Participant  A        B
 Selection    6        47
 Combined        6*47 = 282
-Combined Hash  3fde1d
+Combined Hash  769c72
 ```
 
 In order for all participants to reach the same outcome, the combining
@@ -106,7 +106,7 @@ other functions by sorting the selections.
 
 Because the outcome of our hashing algorithm is indistinguishable from
 a pseudo-random selection, we have generated a pseudo-random hash (in
-this case, `3fde1d`). This is analogous to a coin-flip, or rolling a
+this case, `769c72`). This is analogous to a coin-flip, or rolling a
 N-sided die.
 
 If we wish to elect a leader based on this information, we could
@@ -114,7 +114,7 @@ divide up the outcome range among the participants, and assign the
 winner. For example, because we have 2 participants, we can divide the
 outcome into 2 spaces: odd for `A`, and even for `B`. Then, any
 participant can look at the first digit of the outcome, note that it
-is `3`, which is odd, and determine that `A` has been elected the new
+is `7`, which is odd, and determine that `A` has been elected the new
 leader.
 
 ## Summary, Caveats, and Additional Notes
