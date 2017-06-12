@@ -7,6 +7,11 @@ name: projects
 {{ page.title }}
 ----------------
 
+### [Vulnerability Name Generator](/vulnerability-name-generator)
+
+Randomly-generated, but plausible vulnerability names for your next
+CVE!
+
 ### [cconf](http://github.com/paulbellamy/cconf)
 
 Dead-easy configuration for Clojure apps.
