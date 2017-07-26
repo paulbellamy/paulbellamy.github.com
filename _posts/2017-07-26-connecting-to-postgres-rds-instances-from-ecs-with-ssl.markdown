@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Connecting to Postgres RDS instances from Kubernetes with SSL
+title: Connecting to Postgres RDS instances from Kubernetes (with SSL)
 ---
 
 {{ page.title }}
