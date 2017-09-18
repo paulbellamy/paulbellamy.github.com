@@ -68,6 +68,14 @@ a:hover {
         border-bottom: 1px dotted white;
       }
 
+    .column.post ol {
+      list-style: decimal;
+
+    }
+
+      .column.post ol li {
+        list-style: decimal;
+      }
 
     .column ul {
       list-style:none;
