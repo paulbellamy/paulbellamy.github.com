@@ -3,11 +3,6 @@ layout: post
 title: 7-Point CI Checklist
 ---
 
-{{ page.title }}
-----------------
-
-##### 18 September, 2017
-
 Is setting up and maintaining CI really worth it for your project? Not
 unless you're doing it right. Follow the CI checklist to see how yours
 stacks up.

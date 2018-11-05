@@ -3,12 +3,6 @@ layout: post
 title: cconf - Easy Configuration for Clojure Apps
 ---
 
-{{ page.title }}
-----------------
-
-##### 14 July, 2012
-
-
 ## What?
 
 cconf is a dead-easy library for loading configuration data into your Clojure app. It loads options in from the command-line, environment variables, and JSON files, in the preference order your specify.

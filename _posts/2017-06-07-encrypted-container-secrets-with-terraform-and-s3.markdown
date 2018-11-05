@@ -3,11 +3,6 @@ layout: post
 title: Encrypted Container Secrets with Terraform and S3
 ---
 
-{{ page.title }}
-----------------
-
-##### 07 June, 2017
-
 Using Terraform to manage containers on ECS gives an excellent
 workflow. All your infrastructure, your entire app, from servers to
 the processes running on them can be defined in a single place. But,

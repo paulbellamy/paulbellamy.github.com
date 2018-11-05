@@ -3,12 +3,6 @@ layout: post
 title: Pachube Embeddable Graph Generator
 ---
 
-{{ page.title }}
-----------------
-
-##### 12 March, 2011
-
-
 For a while now we've been hosting internal hackdays at Pachube.  It's an opportunity to work on personal projects, and respond to user requests.  Our users always seem to want more graphs. And why wouldn't they?  Graphs are awesome!
 
 To that end, I've been working on the [Pachube Embeddable Graph Generator.](http://pachube.github.com/pachube_graph_library)  It's a fantastic little tool to generate custom graphs for embedding in your own website or blog.  They're a great way to show off your data.

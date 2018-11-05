@@ -3,11 +3,6 @@ layout: post
 title: Merging Git Repos from Submodules
 ---
 
-{{ page.title }}
-----------------
-
-##### 02 October, 2017
-
 Recently at work, we had 2 closely-related repositories. Because they
 got built into a final binary, one (the website) was a submodule of
 the other (main) repository. Initially this worked quite well, but we

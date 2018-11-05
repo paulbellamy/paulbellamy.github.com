@@ -3,12 +3,6 @@ layout: post
 title: The Magic of the Merkle Tree
 ---
 
-{{ page.title }}
-----------------
-
-##### 12 July, 2017
-
-
 One of the most exciting data structures in recent years has been the rise in
 application of the Merkle Tree. The draw of Merkle trees can be summarized in
 two words, "scalable verification". Given that description, it's not surprising

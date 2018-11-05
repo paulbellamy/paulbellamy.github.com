@@ -3,11 +3,6 @@ layout: post
 title: Connecting to Postgres RDS instances from Kubernetes with SSL
 ---
 
-{{ page.title }}
-----------------
-
-##### 26 July, 2017
-
 This is a short walk-through of how to connect to your Postgres RDS instance from Kubernetes securely over SSL. RDS instances are a great low-touch way to run a persistent database with replication, which doesn't add operational complexity to your containerized app.
 
 We'll be using the go [pq](https://github.com/lib/pq) Postgres client as an example. The principles are common across Postgres clients, but may vary slightly.

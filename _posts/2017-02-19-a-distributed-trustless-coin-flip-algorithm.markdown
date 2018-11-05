@@ -3,11 +3,6 @@ layout: post
 title: A Distributed Trustless Coin-Flip Algorithm
 ---
 
-{{ page.title }}
-----------------
-
-##### 19 February, 2017
-
 A common situation in distributed computing is leader election. Most
 often, this is achieved by coordinating to pick a random outcome.
 There are quite a few well-known distributed algorithms for picking a

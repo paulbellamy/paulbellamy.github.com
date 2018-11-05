@@ -3,11 +3,6 @@ layout: post
 title: Intermediate Go Idioms
 ---
 
-{{ page.title }}
-----------------
-
-##### 27 June, 2015
-
 There are lots of posts on basic idioms in Go. But, there has been a
 lack of posts about more advanced idioms.
 

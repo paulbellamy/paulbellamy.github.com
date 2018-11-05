@@ -3,12 +3,6 @@ layout: post
 title: livecomments.go - Real-time blog comments in Go, backbone.js, socket.io, and redis
 ---
 
-{{ page.title }}
-----------------
-
-##### 03 April, 2011
-
-
 livecomments.go is meant to make blog comments a bit more fun.  It bridges the gap between comments and a chat-room, allowing real interactions between readers.  I built it in Go, backbone.js, socket.io, and redis as a learning experience, and was inspired by [this guy](http://fzysqr.com/2011/02/28/nodechat-js-using-node-js-backbone-js-socket-io-and-redis-to-make-a-real-time-chat-app/) to post it as a tutorial for others interested in this stack. It is *far* from being done, so take this all with a grain of salt.
 
 ## The Ingredients

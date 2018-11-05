@@ -35,6 +35,11 @@
       </ul>
     </div>
     <div class="column post">
+      <h2>{{ page.title }}</h2>
+      {% if page.subtitle != "" %}
+        <h3>{{ page.subtitle }}</h2>
+      {% endif %}
+      <h5>{{ page.date | date: "%-d %B, %Y" }}</h5>
       {{ content }}
     </div>
   </body>

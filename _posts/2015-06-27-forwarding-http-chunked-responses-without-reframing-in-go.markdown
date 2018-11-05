@@ -3,11 +3,6 @@ layout: post
 title: Forwarding HTTP Chunked Responses Without Reframing in Go
 ---
 
-{{ page.title }}
-----------------
-
-##### 27 June, 2015
-
 In a recent project at [Weave](http://weave.works), I needed to proxy
 a Chunked HTTP response body to the client. Normally this would just
 be a case of copying the response body reader to client's writer.

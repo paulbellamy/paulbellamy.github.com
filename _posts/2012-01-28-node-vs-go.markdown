@@ -3,11 +3,6 @@ layout: post
 title: Node vs Go
 ---
 
-{{ page.title }}
-----------------
-
-##### 28 January, 2012
-
 **Note: This comparison is quite out of date, and once Go 1.1 is released, I'm planning to revisit this comparison and cover what has changed.**
 
 I've done a bit of Google Go, and done a bit of Node.js, and I thought it was time to do a bit of a comparison between them.

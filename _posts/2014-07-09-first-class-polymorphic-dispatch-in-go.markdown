@@ -3,11 +3,6 @@ layout: post
 title: First-Class Polymorphic Methods in Go
 ---
 
-{{ page.title }}
-----------------
-
-##### 9 July, 2014
-
 In Go, functions are first-class, but methods are also first class. Even more so than in some other languages. In Go, we have first-class polymorphic dispatch.
 
 ## Regular Methods

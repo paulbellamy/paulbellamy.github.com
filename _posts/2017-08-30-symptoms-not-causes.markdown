@@ -3,11 +3,6 @@ layout: post
 title: Symptoms Not Causes
 ---
 
-{{ page.title }}
-----------------
-
-##### 30 August, 2017
-
 One simple rule can improve your alerting. Alert on symptoms, not
 causes. If users are experience errors or high latency, that's an
 alert we care about. If a server is down, that shouldn't be an alert.
