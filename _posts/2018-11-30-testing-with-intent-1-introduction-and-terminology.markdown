@@ -84,7 +84,7 @@ releasing code.
 
 ###  Doubles / Stubs / Fakes / Mocks
 
-The naming of fakes, stubs, mocks, and spies are al very convoluted. Every test
+The naming of fakes, stubs, mocks, and spies are all very convoluted. Every test
 framework uses them differently. For this series, I'll try to use the following
 definitions.
 
