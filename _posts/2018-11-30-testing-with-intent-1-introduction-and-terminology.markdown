@@ -10,8 +10,8 @@ With this series, I aim to showcase how we can write tests which serve as execut
 ## Table of Contents
 
 1. [Introduction and Terminology](#introduction)
+2. [What is TDD? And why should I care?]({% post_url 2018-12-07-testing-with-intent-2-what-is-tdd %})
 <h4 style="margin-bottom: 0; margin-top: 24px;">Upcoming Posts...</h4>
-<div><span>07 Dec 2018</span> &raquo; What is TDD? And why should I care?</div>
 <div><span>14 Dec 2018</span> &raquo; Writing Quality Tests</div>
 <div><span>21 Dec 2018</span> &raquo; Testing as Triangulation</div>
 <div><span>28 Dec 2018</span> &raquo; Two Schools of TDD</div>
