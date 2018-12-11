@@ -14,8 +14,8 @@ With this series, I aim to showcase how we can write tests which serve as execut
 3. [Writing Quality Tests]({% post_url 2018-12-14-testing-with-intent-3-writing-quality-tests %})
 4. [Testing as Triangulation]({% post_url 2018-12-21-testing-with-intent-4-testing-as-triangulation %})
 5. [Two Schools of TDD]({% post_url 2018-12-28-testing-with-intent-5-two-schools-of-tdd %})
+6. [Testing and Types]({% post_url 2019-01-04-testing-with-intent-6-testing-and-types %})
 <h4 style="margin-bottom: 0; margin-top: 24px;">Upcoming Posts...</h4>
-<div><span>04 Jan 2019</span> &raquo; Testing and Types</div>
 <div><span>11 Jan 2019</span> &raquo; TDD's Impact on Program Design</div>
 <div><span>18 Jan 2019</span> &raquo; DeepEqual Considered Harmful</div>
 <div><span>25 Jan 2019</span> &raquo; Descriptive Test Naming</div>
