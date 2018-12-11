@@ -17,8 +17,8 @@ With this series, I aim to showcase how we can write tests which serve as execut
 6. [Testing and Types]({% post_url 2019-01-04-testing-with-intent-6-testing-and-types %})
 7. [TDD's Impact on Program Design]({% post_url 2019-01-11-testing-with-intent-7-tdds-impact-on-program-design %})
 8. [DeepEqual Considered Harmful]({% post_url 2019-01-18-testing-with-intent-8-deepequal-considered-harmful %})
+9. [Descriptive Test Naming]({% post_url 2019-01-25-testing-with-intent-9-descriptive-test-naming %})
 <h4 style="margin-bottom: 0; margin-top: 24px;">Upcoming Posts...</h4>
-<div><span>25 Jan 2019</span> &raquo; Descriptive Test Naming</div>
 <div><span>01 Feb 2019</span> &raquo; Testing the Database with Interfaces</div>
 <div><span>08 Feb 2019</span> &raquo; Legacy and Refactoring</div>
 <br>
