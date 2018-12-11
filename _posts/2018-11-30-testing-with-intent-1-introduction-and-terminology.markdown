@@ -16,8 +16,8 @@ With this series, I aim to showcase how we can write tests which serve as execut
 5. [Two Schools of TDD]({% post_url 2018-12-28-testing-with-intent-5-two-schools-of-tdd %})
 6. [Testing and Types]({% post_url 2019-01-04-testing-with-intent-6-testing-and-types %})
 7. [TDD's Impact on Program Design]({% post_url 2019-01-11-testing-with-intent-7-tdds-impact-on-program-design %})
+8. [DeepEqual Considered Harmful]({% post_url 2019-01-18-testing-with-intent-8-deepequal-considered-harmful %})
 <h4 style="margin-bottom: 0; margin-top: 24px;">Upcoming Posts...</h4>
-<div><span>18 Jan 2019</span> &raquo; DeepEqual Considered Harmful</div>
 <div><span>25 Jan 2019</span> &raquo; Descriptive Test Naming</div>
 <div><span>01 Feb 2019</span> &raquo; Testing the Database with Interfaces</div>
 <div><span>08 Feb 2019</span> &raquo; Legacy and Refactoring</div>
