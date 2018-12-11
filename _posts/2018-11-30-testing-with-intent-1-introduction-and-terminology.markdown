@@ -19,8 +19,7 @@ With this series, I aim to showcase how we can write tests which serve as execut
 8. [DeepEqual Considered Harmful]({% post_url 2019-01-18-testing-with-intent-8-deepequal-considered-harmful %})
 9. [Descriptive Test Naming]({% post_url 2019-01-25-testing-with-intent-9-descriptive-test-naming %})
 10. [Testing the Database with Interfaces]({% post_url 2019-02-01-testing-with-intent-10-testing-the-database-with-interfaces %})
-<h4 style="margin-bottom: 0; margin-top: 24px;">Upcoming Posts...</h4>
-<div><span>08 Feb 2019</span> &raquo; Legacy and Refactoring</div>
+11. [Legacy and Refactoring]({% post_url 2019-02-08-testing-with-intent-11-legacy-and-refactoring %})
 <br>
 
 ---
