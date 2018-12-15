@@ -310,9 +310,9 @@ opinion.
 
 ### Combinatorial Explosion
 
-The number of tests and complexity always grows faster than your code. N
-interacting bits of code will have up to N^2 connections. If you want to test
-all interactions and combinations you need N^2 tests.
+The number of tests and complexity always grows faster than your code. $$N$$
+interacting bits of code will have up to $$N^2$$ connections. If you want to test
+all interactions and combinations you need $$N^2$$ tests.
 
 $$N Components = N^2\ Interactions$$
 
