@@ -28,30 +28,30 @@ essential principles we should expect.
 
 1. Flexible
 
-When you're refactoring is when the safety-net is most essential. If the tests
-are too deeply coupled to your implementation, they will constantly be "in your
-way". So, a top-notch test suite is as decoupled as possible from the specific
-implementation. That way we are not tempted to move refactor and move our safety
-net at the same time.
+    When you're refactoring is when the safety-net is most essential. If the
+    tests are too deeply coupled to your implementation, they will constantly be
+    "in your way". So, a top-notch test suite is as decoupled as possible from
+    the specific implementation. That way we are not tempted to move refactor
+    and move our safety net at the same time.
 
 2. Reliable
 
-Imagine that your safety-net drops you 5% of the time, or on Feb 29, or whenever
-daylight-savings-time comes into effect. You would *never* rely on that for real
-peace of mind. Just like in a CI pipeline, the damage done by flakey tests is
-difficult to overestimate. Or maybe the test suite takes too long to run. This
-is like a safety-net too far away. It's still there, but you're less willing to
-rely on it.
+    Imagine that your safety-net drops you 5% of the time, or on Feb 29, or
+    whenever daylight-savings-time comes into effect. You would *never* rely on
+    that for real peace of mind. Just like in a CI pipeline, the damage done by
+    flakey tests is difficult to overestimate. Or maybe the test suite takes too
+    long to run. This is like a safety-net too far away. It's still there, but
+    you're less willing to rely on it.
 
 3. Understandable
 
-While climbing, the path you are on ends without warning. Maybe it veers wildly
-off to the side, or the hooks are too far apart to be seen. Suddenly you are not
-on a route. You are off by yourself. Of course, the climb may continue, but you
-no longer have a guide. A test suite should be an understandable route-map, left
-behind to guide the next developer through your though-process. What constraints
-are on the system? What is the required behaviour? What are the things we *don't
-care about*?
+    While climbing, the path you are on ends without warning. Maybe it veers
+    wildly off to the side, or the hooks are too far apart to be seen. Suddenly
+    you are not on a route. You are off by yourself. Of course, the climb may
+    continue, but you no longer have a guide. A test suite should be an
+    understandable route-map, left behind to guide the next developer through
+    your though-process. What constraints are on the system? What is the
+    required behaviour? What are the things we *don't care about*?
 
 Like almost anything, most of these principles come with intentional directed
 practice. Thoughtful introspection when writing tests (and code) will help us
