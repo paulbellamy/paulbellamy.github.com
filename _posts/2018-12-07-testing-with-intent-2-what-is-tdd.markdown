@@ -51,17 +51,17 @@ TDD delivers these goals with three simple rules.
 
 1. Don't write production code unless it to passes a failing test
 
-The first rule makes sure you have 100% coverage (or at least high). If you write code that's without a test, it *must* be untested. In all honesty, this is the rule most people (including myself) cheat on. Perfectionist 100% test coverage is not common, or even necessary for every project. There is a scale from 0% tested, to 100% tested (and beyond). Determining where you should be, demands honesty. Honesty about your product, your customers, and your industry.
+    The first rule makes sure you have 100% coverage (or at least high). If you write code that's without a test, it *must* be untested. In all honesty, this is the rule most people (including myself) cheat on. Perfectionist 100% test coverage is not common, or even necessary for every project. There is a scale from 0% tested, to 100% tested (and beyond). Determining where you should be, demands honesty. Honesty about your product, your customers, and your industry.
 
 2. Write only enough of a test to show a failure
 
-The second rule counter-balances the first. If you're writing more test than you need to show a failure that's a waste. You write tests with code. Code needs maintenance. Too many tests, means wasted time maintaining tests!
+    The second rule counter-balances the first. If you're writing more test than you need to show a failure that's a waste. You write tests with code. Code needs maintenance. Too many tests, means wasted time maintaining tests!
 
-But, failing to compile counts as a failure. Often the first test can only involve calling a function, or using an interface. That will fail to compile, and we can go begin work.
+    But, failing to compile counts as a failure. Often the first test can only involve calling a function, or using an interface. That will fail to compile, and we can go begin work.
 
 3. Write only enough production code to pass the test
 
-Rule three comes full-circle back to number one. We're not writing code without a failing test. So once the tests pass, it's time to go back and write the next failing test.
+    Rule three comes full-circle back to number one. We're not writing code without a failing test. So once the tests pass, it's time to go back and write the next failing test.
 
 These three rules work together to ensure we are always hopping back and forth. We develop the tests and the code in parallel. Little bit of test. Little bit of code. Through this process, we keep iterations frequent.
 
