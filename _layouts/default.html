@@ -70,7 +70,7 @@
           <h3>{{ page.subtitle }}</h2>
         {% endif %}
         {% if page.date != "" %}
-          <h5>{{ page.date | date: "%-d %B, %Y" }}</h5>
+          <time datetime="{{ page.date }}"><h5>{{ page.date | date: "%-d %B, %Y" }}</h5></time>
         {% endif %}
         <section role="content">
           {{ content }}
