@@ -2,7 +2,7 @@
 title: About
 ---
 
-I'm a London-based Freelance Software Developer, Distributed Systems Nerd, and Amateur Metalsmith. Some of my projects are hosted at <a href="http://www.github.com/paulbellamy">Github</a>.
+I'm a London-based "Devops" Consultant and Full-stack Software Engineer, Distributed Systems Nerd, and Avid Motorcyclist. Some of my projects are hosted at <a href="http://www.github.com/paulbellamy">Github</a>.
 
 Occasionally, [I blog](/), but not particulary often.
 
