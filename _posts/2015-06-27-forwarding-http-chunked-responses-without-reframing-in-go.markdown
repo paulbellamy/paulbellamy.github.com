@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Forwarding HTTP Chunked Responses Without Reframing in Go
 ---
 

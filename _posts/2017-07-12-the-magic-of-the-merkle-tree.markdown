@@ -1,5 +1,4 @@
 ---
-layout: post
 title: The Magic of the Merkle Tree
 ---
 

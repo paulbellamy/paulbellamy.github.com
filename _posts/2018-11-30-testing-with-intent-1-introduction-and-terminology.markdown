@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Testing With Intent: Introduction and Terminology"
 ---
 

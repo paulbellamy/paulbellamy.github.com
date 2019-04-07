@@ -1,5 +1,4 @@
 ---
-layout: post
 title: A Distributed Trustless Coin-Flip Algorithm
 ---
 

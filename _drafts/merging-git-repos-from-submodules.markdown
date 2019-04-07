@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Merging Git Repos from Submodules
 ---
 

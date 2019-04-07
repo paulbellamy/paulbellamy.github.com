@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Connecting to Postgres RDS instances from Kubernetes with SSL
 ---
 

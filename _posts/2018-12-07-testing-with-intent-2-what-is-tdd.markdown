@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Testing With Intent: What is TDD?"
 subtitle: And why should I care?
 ---

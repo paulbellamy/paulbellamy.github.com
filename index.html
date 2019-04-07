@@ -2,10 +2,23 @@
 layout: default
 title: Recent Posts
 ---
-<h2>Recent Posts</h2>
-
+<style lang="text/css">
+  <!--
+  ul.posts li {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+  }
+  ul.posts li time {
+    margin: auto 0;
+  }
+  -->
+</style>
 <ul class="posts">
   {% for post in site.posts %}
-    <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
+    <li>
+      <h4><a href="{{ post.url }}">{{ post.title }}</a></h3>
+      <time datetime="{{ post.date }}">{{ post.date | date: "%-d %B, %Y" }}</time>
+    </li>
   {% endfor %}
 </ul>

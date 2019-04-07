@@ -1,11 +1,6 @@
 ---
-layout: default
 title: Projects
-name: projects
 ---
-
-{{ page.title }}
-----------------
 
 ### [Vulnerability Name Generator](/vulnerability-name-generator)
 

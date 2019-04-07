@@ -1,5 +1,4 @@
 ---
-layout: post
 title: livecomments.go - Real-time blog comments in Go, backbone.js, socket.io, and redis
 ---
 

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Dotfiles &lt;3 Dropbox
 ---
 

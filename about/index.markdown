@@ -1,11 +1,6 @@
 ---
-layout: default
 title: About
-name: about
 ---
-
-{{ page.title }}
-----------------
 
 I'm a London-based Freelance Software Developer, Distributed Systems Nerd, and Amateur Metalsmith. Some of my projects are hosted at <a href="http://www.github.com/paulbellamy">Github</a>.
 

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: 7-Point CI Checklist
 ---
 

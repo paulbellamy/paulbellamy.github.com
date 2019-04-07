@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Intermediate Go Idioms
 ---
 

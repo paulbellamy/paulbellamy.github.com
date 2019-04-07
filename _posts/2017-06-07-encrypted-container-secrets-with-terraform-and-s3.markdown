@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Encrypted Container Secrets with Terraform and S3
 ---
 

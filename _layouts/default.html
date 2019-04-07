@@ -2,13 +2,42 @@
 <html>
   <head>
     <title>paulbellamy.com - {{ page.title }}</title>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="/css/default.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700">
+    <!-- Self-hosted version of: https://cdn.jsdelivr.net/gh/kognise/water.css@latest/dist/default.css -->
+    <link rel="stylesheet" href="/css/default.css">
+    <style lang="text/css">
+      <!--
+      body { font-family: "Open Sans",sans-serif; }
+      header {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+      }
+      header nav {
+        display: flex;
+        flex-flow: row wrap;
+        margin: auto 0;
+      }
+      header nav a {
+        margin: 0 1em 0 0;
+      }
+      -->
+    </style>
 
     <!-- RSS / ATOM autodiscovery -->
     <link rel="alternate" type="application/atom+xml" title="ATOM" href="http://paulbellamy.com/atom.xml">
     <link rel="alternate" type="application/rss+xml" title="RSS" href="http://paulbellamy.com/rss.xml">
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+    <script type="text/javascript">
+      // Set mathjax to align left, instead of centered.
+      MathJax.Hub.Config({
+          jax: ["input/TeX","output/HTML-CSS"],
+          displayAlign: "left"
+      });
+    </script>
     <script type="text/javascript">
 
       var _gaq = _gaq || [];
@@ -24,18 +53,29 @@
     </script>
   </head>
   <body>
-    <div class="header">
-      <a href="/"><h1>paulbellamy.com</h1></a>
-    </div>
-    <div class="column nav">
-      <ul>
-        <li{% if page.name == 'about' %} class="selected"{% endif %}><a href="/about">About</a></li>
-        <li{% if page.name == 'projects' %} class="selected"{% endif %}><a href="/projects">Projects</a></li>
-        <li{% if page.name %}{% else %} class="selected"{% endif %}><a href="/">Blog</a></li>
-      </ul>
-    </div>
-    <div class="column">
-      {{ content }}
-    </div>
+    <main>
+      <header>
+        <a class="logo" href="/"><h1>paulbellamy.com</h1></a>
+        <nav>
+          <a href="/about">About</a>
+          <a href="/projects">Projects</a>
+          <a href="/">Blog</a>
+        </nav>
+      </header>
+      <article>
+        {% if page.title != "" %}
+          <h2>{{ page.title }}</h2>
+        {% endif %}
+        {% if page.subtitle != "" %}
+          <h3>{{ page.subtitle }}</h2>
+        {% endif %}
+        {% if page.date != "" %}
+          <h5>{{ page.date | date: "%-d %B, %Y" }}</h5>
+        {% endif %}
+        <section role="content">
+          {{ content }}
+        </section>
+      </article>
+    </main>
   </body>
 </html>

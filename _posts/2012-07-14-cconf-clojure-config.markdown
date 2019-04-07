@@ -1,5 +1,4 @@
 ---
-layout: post
 title: cconf - Easy Configuration for Clojure Apps
 ---
 

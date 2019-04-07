@@ -1,5 +1,4 @@
 ---
-layout: post
 title: First-Class Polymorphic Methods in Go
 ---
 
